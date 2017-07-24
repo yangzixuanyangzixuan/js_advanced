@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_回调函数</title>
+</head>
+<body>
+<button id="btn">测试点击事件</button>
+<!--
+1. 什么函数才是回调函数?
+2. 常见的回调函数?
+-->
+<script type="text/javascript">
+  //1. DOM事件函数
+  var btn = document.getElementById('btn')
+  btn.onclick = function () {
+    alert(this.innerHTML)
+  }
+
+  //2. 定时器函数
+  setInterval(function () {
+    alert('到点啦!')
+  }, 2000)
+</script>
+
+</body>
+</html>

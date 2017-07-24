@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_作用域_面试题2</title>
+</head>
+<body>
+<script type="text/javascript">
+  /*
+   说说它们的输出情况
+   */
+//定义的函数表达式
+  /*var fn = function () {
+    console.log(fn)//function(){console.log(fn)}
+  }
+  fn()*/
+
+  var fn = function () {
+    console.log(fn)//function(){console.log(fn)}
+  }
+  fn()
+
+
+
+  var obj = {
+    fn2: function () {
+     // console.log(fn2)//fn2 is not defined
+      //若要找到 fn2 可以写成下面的形式；
+      console.log(this.fn2)
+    }
+  }
+  obj.fn2()
+
+</script>
+</body>
+</html>

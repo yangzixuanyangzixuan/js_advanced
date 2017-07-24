@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_关于引用变量赋值问题</title>
+</head>
+<body>
+<!--
+关于引用变量赋值问题
+  * 2个引用变量指向同一个对象, 通过一个引用变量修改对象内部数据, 另一个引用变量也看得见
+  * 2个引用变量指向同一个对象,让一个引用变量指向另一个对象, 另一个引用变量还是指向原来的对象
+-->
+<script type="text/javascript">
+  //2个引用变量指向同一个对象, 通过一个引用变量修改对象内部数据, 另一个引用变量也看得见
+ /* var a1 = {m:2}
+  var a2 = a1
+  console.log(a1===a2);//true
+  //对a1进行修改
+  a1.m = 3
+  console.log(a2.m)//3
+
+  function fn1(a) {
+    //对m的值在进行修改
+    a.m = 4
+
+  }
+  fn1(a1)
+  console.log(a2.m)//4*/
+
+
+
+  //2个引用变量指向同一个对象,让一个引用变量指向另一个对象, 另一个引用变量还是指向原来的对象
+  //对象是引用类型的，所以如果你把一个对象赋值给另一个变量，它实际上只是把内存地址赋值了，
+  var  a3={n:4}
+  var a4 =  a3
+  function fn2(a) {
+    a={n:6}//相当于a又创建了一个的对象 让局部指向另一个对象，对原来的对象没有任何的改变
+
+    console.log(a) //是一个object对象
+  }
+  fn2(a3)
+  console.log(a4.n)//4
+
+   /*var a = 1;
+  function fun (a){
+    a = 2
+    console.log(a+'--')//2
+  }
+  fun(a);
+  console.log(a); //1;*/
+
+
+
+
+
+
+</script>
+</body>
+</html>

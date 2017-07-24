@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>07_函数中的this</title>
+</head>
+<body>
+<!--
+1. this是什么?
+  * 一个关键字, 一个内置的引用变量是指地址值
+  * 在函数中都可以直接使用this
+  * this代表调用函数的当前对象
+  * 在定义函数时, this还没有确定, 只有在执行时才动态确定(绑定)的 (除了bind ，bind中绑定的对像 this是指绑定的对象)
+2. 如何确定this的值?
+  * test()
+  * obj.test()
+  * new test()
+  * test.call(obj)
+前置知识:
+  * 本质上任何函数在执行时都是通过某个对象调用的
+-->
+
+<script type="text/javascript">
+  function Person(color) {
+    console.log(this)
+    this.color = color;
+
+    this.getColor = function () {
+      console.log(this)
+      return this.color;
+    };
+    this.setColor = function (color) {
+      console.log(this)
+      this.color = color;
+    };
+  }
+
+  Person("red"); //this是谁? window
+
+  var p = new Person("yello"); //this是谁? p
+  // new的对象执行完函数中属性之后 不会在执行一般的方法
+  //执行函数：是指调用函数
+  //执行函数定义：创建函数对象，并没有调用函数
+  /*
+   this.getColor = function () {
+   console.log(this)
+   return this.color;
+   };
+
+  只是定义了函数体 function(){}并没有执行函数
+   */
+
+  p.getColor(); //this是谁? p
+
+  var obj = {};
+  p.setColor.call(obj, "black"); //this是谁?obj
+
+  var test = p.setColor;
+  test(); //this是谁? window
+  /*
+   p.setColor;得到是函数
+   test是被赋值得到的
+  * */
+
+  function fun1() {
+    function fun2() {
+      console.log(this);
+    }
+
+    fun2(); //this是谁? window
+  }
+  fun1();
+
+
+
+  var obj={}
+  function fn(){
+    console.log(this)//this是指obj 主要是因为有bind绑定的对象
+  }
+  fn=fn.bind(obj)
+  fn()
+
+</script>
+</body>
+</html>

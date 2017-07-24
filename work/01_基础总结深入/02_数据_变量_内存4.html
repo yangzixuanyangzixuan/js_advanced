@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_关于数据传递问题</title>
+</head>
+<body>
+<!--
+问题: 在js调用函数时传递变量参数时, 是值传递还是引用传递
+  * 只有值传递, 没有引用传递, 传递的都是变量的值, 只是这个值可能是基本数据, 也可能是地址值
+  * 如果后一种看成是引用传递, 那就值传递和引用传递都可以有
+  什么情况下是引用传递
+    - 当a是一个引用变量的时候 此时a是一个包含地址值时
+      把a的值传递给b 此时b就是有a中的地址值 就称为引用传递
+
+-->
+<script type="text/javascript">
+  var a={}
+  a=4
+  function fn(b) {
+    console.log(b);//4
+
+  }
+  fn(a)
+</script>
+</body>
+</html>

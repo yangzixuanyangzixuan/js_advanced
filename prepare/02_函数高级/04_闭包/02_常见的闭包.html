@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_常见的闭包</title>
+
+</head>
+<body>
+<!--
+1. 将函数作为另一个函数的返回值
+2. 将函数作为实参传递给另一个函数调用
+-->
+<script type="text/javascript">
+  // 1. 将函数作为另一个函数的返回值
+  function fn1() {
+    var a = 2
+
+    function fn2() {
+      a++
+      console.log(a)
+      //引用的是fn2 所以fn2是不会消失的
+      console.log(fn2)
+    }
+
+    return fn2
+  }
+  var f = fn1()
+ /* f是指向 (){
+    a++
+    console.log(a)
+  }对象
+  而fn2对象直接消失*/
+
+  f() // 3
+  f() // 4
+
+  /*---------*/
+  function fn1() {
+    var a = 2
+
+    function fn2() {
+      a++
+      console.log(a)
+      //没有引用的是fn2 所以fn2是会消失的
+
+    }
+
+    return fn2
+  }
+  var f = fn1()
+  f() // 3
+  f() // 4
+  /*-------------*/
+
+
+
+
+
+  // 2. 将函数作为实参传递给另一个函数调用 有闭包 引用的是msg
+  //生命周期：所在的函数对象没有消失 内部的函数中对象变量被js引擎所指向
+  //在每2秒就会被调用执行
+  function showMsgDelay(msg, time) {
+    setTimeout(function () {
+      console.log(msg)
+    }, time)
+  }
+  showMsgDelay('hello', 1000)
+
+
+
+//没有使用闭包
+  function showMsgDelay( time) {
+    setTimeout(function () {
+      console.log('gggg')
+    }, time)
+  }
+  showMsgDelay( 1000)
+</script>
+</body>
+</html>

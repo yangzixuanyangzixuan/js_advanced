@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>05_回调函数</title>
+</head>
+<body>
+<button id="btn">测试点击事件</button>
+<!--
+1. 什么函数才是回调函数?
+  * 你定义的
+  * 你没有直接调用
+  * 但最终它执行了(在特定条件或时刻)
+2. 常见的回调函数?
+  * DOM事件函数 :回调函数是指发生事件的dom元素
+  * 定时器函数：回调函数是指window
+
+  * ajax回调函数 :回调函数是指window
+  * 生命周期回调函数 :回调函数是指组件对象
+ 3. 如何制定回调函数中的this
+  *通过fn.bind(obj) 返回的函数的this是obj, 将bind的绑定值作为回调函数
+  * 箭头函数：外层的this(箭头函数内部没有自己的this)
+-->
+<script type="text/javascript">
+
+  //1. DOM事件函数
+  var btn = document.getElementById('btn')
+  btn.onclick = function () {
+    alert(this.innerHTML)
+  }
+
+  //2. 定时器函数
+  setInterval(function () {
+    alert('到点啦!')
+  }, 2000)
+</script>
+
+</body>
+</html>

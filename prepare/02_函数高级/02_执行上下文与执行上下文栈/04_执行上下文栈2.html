@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>04_执行上下文栈2</title>
+</head>
+<body>
+<!--
+1. 依次输出什么?
+2. 整个过程中产生了几个执行上下文?
+-->
+<script type="text/javascript">
+
+  foo(1);
+
+  function foo(i) {
+
+    if (i == 3) {
+     return;
+     }
+     foo(i + 1);
+
+    return;
+    console.log(123);
+
+
+  }
+
+
+
+</script>
+
+</body>
+</html>

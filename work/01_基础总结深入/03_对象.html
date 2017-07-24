@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_对象</title>
+</head>
+<body>
+<!--
+1. 什么是对象?
+2. 为什么要用对象?
+3. 对象的组成
+4. 如何访问对象内部数据?
+-->
+<script type="text/javascript">
+  //创建对象
+
+  let person = {
+  name:'tom',
+  age:12,
+    setName(name){
+    this.name=name
+    },
+  setAge (age){
+    this.age=age
+
+  }
+}
+//访问对象内部的数据
+  console.log(person.name)//tom
+  console.log(person['age'])//12
+
+
+  //操作他的方法
+  person.setName('jack')
+  person['setAge'](78)//()执行的是函数
+
+console.log(person.name,person.age)//jack 78
+
+
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>02_数据_变量_内存</title>
+</head>
+<body>
+<!--
+1. 什么是数据?
+2. 什么是内存?
+3. 什么是变量?
+4. 内存,数据, 变量三者之间的关系
+-->
+<script type="text/javascript">
+  //说明函数是可以传递的
+  function fun(f) {
+    console.log(f) //输出的是一个function函数
+    console.log(f()) //输出的是 ---11
+  }
+  fun(function(){
+    console.log('----11')// undefined进行分析 先执行的是内部的函数
+    //在这里输出undefined 原因是没有return 返回 所以输出的是 undefined
+  })
+
+</script>
+</body>
+</html>

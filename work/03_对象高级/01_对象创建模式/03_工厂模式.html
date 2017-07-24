@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>03_工厂模式</title>
+</head>
+<body>
+<!--
+方式三: 工厂模式
+  * 套路: 通过工厂函数动态创建对象并返回
+  * 适用场景: 需要创建多个对象
+  * 问题: 对象没有一个具体的类型, 都是Object类型
+-->
+<script type="text/javascript">
+  function createPerson(name,age){
+    var person = {
+      name :name,
+      age : age,
+      setName:function (name) {
+        this.name = name
+        this.age = age
+
+      }
+    }
+    return person
+  }
+  var p1 = createPerson('tom',12);//p1没有具体的类型
+  console.log(p1);//返回的是一个object对象
+
+
+  function createDog(name,age){
+    var dog = {
+      name :name,
+      age : age,
+      setName:function (name) {
+        this.name = name
+        this.age = age
+
+      }
+    }
+    return dog
+  }
+  var p2 = createDog('tom',12);//p1与p2类型不能区别
+
+  console.log(p2);//返回的是一个object对象
+</script>
+</body>
+</html>
